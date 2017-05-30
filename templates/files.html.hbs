@@ -1,0 +1,29 @@
+{{#*inline "page"}}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>File</th>
+            <th>Password</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each filenames as |filename| }}
+        <tr>
+            <td>{{filename}}</td>
+            <form action="/entries" class="form-horizontal" method="POST" role="form">
+                <input type="hidden" value="{{filename}}" name="filename" />
+                <td>
+                    <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+                </td>
+                <td class="login-td">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/inline}}
+
+{{~> (parent)~ }}

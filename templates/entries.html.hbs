@@ -1,0 +1,34 @@
+{{#*inline "page"}}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>URL</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each entries as |entry| }}
+        <tr>
+            <td>{{entry.title}}</td>
+            <td>{{entry.username}}</td>
+            <td class="password-td">
+                {{#if entry.password}}
+                    <input type="password" id="entry_password" name="password" value="{{entry.password}}" class="form-control" data-toggle="password"/>
+                {{/if}}
+            </td>
+            <td class="breaking-td">
+                {{#if entry.url}}
+                    <a href="{{entry.url}}">{{entry.url}}</a>
+                {{/if}}
+            </td>
+            <td class="breaking-td">{{entry.notes}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/inline}}
+
+{{~> (parent)~ }}
